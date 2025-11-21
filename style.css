@@ -1,0 +1,198 @@
+body {
+    font-family: Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    text-align: center;
+    min-height: 100vh;
+    transition: all 0.8s;
+}
+
+.container {
+    padding: 80px 20px;
+}
+
+h1 { font-size: 3.5rem; margin-bottom: 20px; }
+p { font-size: 1.6rem; }
+#profile-pic { 
+    width: 220px; 
+    height: 220px; 
+    border-radius: 50%; 
+    border: 8px solid white; 
+    margin: 30px 0;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    font-size: 1.4rem;
+    background: #fff;
+    color: #333;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+button:hover { transform: scale(1.1); }
+#counter { margin-top: 40px; font-size: 2rem; font-weight: bold; } 
+.header {
+    margin-bottom: 40px;
+}
+
+.logo {
+    width: 80%;           /* روی موبایل و دسکتاپ تنظیم می‌شه */
+    max-width: 600px;     /* بزرگ‌ترین اندازه */
+    height: auto;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border: 5px solid rgba(255,255,255,0.3);
+    transition: all 0.4s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+} 
+/* بخش‌های جدید */
+section {
+    margin: 80px auto;
+    max-width: 900px;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 2.8rem;
+    margin-bottom: 30px;
+    color: #fff;
+    text-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+.about p {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    background: rgba(255,255,255,0.15);
+    padding: 25px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+/* مهارت‌ها */
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+.skill {
+    background: rgba(255,255,255,0.2);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+/* کارت پروژه‌ها */
+.project-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+.card {
+    background: rgba(255,255,255,0.2);
+    padding: 30px;
+    border-radius: 20px;
+    font-size: 1.4rem;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.4s;
+}
+.card:hover {
+    transform: translateY(-15px);
+    background: rgba(255,255,255,0.35);
+}
+
+/* فوتر */
+footer {
+    margin-top: 100px;
+    padding: 40px;
+    background: rgba(0,0,0,0.4);
+    font-size: 1.3rem;
+}
+#day-count {
+    font-weight: bold;
+    color: #ff9a9e;
+} 
+/* انیمیشن ورود خفن */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container, .about, .skills, .projects, footer {
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* ریسپانسیو کامل */
+@media (max-width: 768px) {
+    h1 { font-size: 2.8rem !important; }
+    h2 { font-size: 2.2rem !important; }
+    .logo { width: 90% !important; }
+    .about p { font-size: 1.3rem !important; }
+    button { padding: 12px 30px !important; font-size: 1.2rem !important; }
+    .skill { font-size: 1.1rem !important; padding: 10px 20px !important; }
+    .card { padding: 20px !important; font-size: 1.2rem !important; } 
+    .contact {
+    margin: 100px auto;
+    max-width: 700px;
+    padding: 20px;
+}
+
+.contact input, .contact textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    backdrop-filter: blur(10px);
+}
+
+.contact textarea {
+    height: 150px;
+    resize: none;
+}
+
+.contact button {
+    width: 100%;
+    padding: 18px;
+    font-size: 1.5rem;
+    background: #ff9a9e;
+    color: white;
+    border-radius: 50px;
+}
+
+#form-message {
+    margin-top: 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.counter-section {
+    text-align: center;
+    margin: 80px 0;
+    font-size: 2rem;
+    color: #fff;
+}
+#visitor-count {
+    font-size: 4rem;
+    color: #a18cd1;
+    text-shadow: 0 0 20px rgba(161,140,209,0.8);
+}
+}
