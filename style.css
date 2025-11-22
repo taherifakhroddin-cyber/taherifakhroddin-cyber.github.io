@@ -206,5 +206,41 @@ body.dark input, body.dark textarea { background: rgba(0,0,0,0.4); color: white;
     position: fixed; top: 20px; left: 20px; 
     padding: 10px 20px; border-radius: 50px; 
     background: #fff; color: #333; cursor: pointer; 
+} 
+/* دارک مود کامل و خفن */
+body.dark {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e) !important;
+    color: #e0e0e0 !important;
 }
+
+body.dark * {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #e0e0e0 !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark .container,
+body.dark section,
+body.dark .card,
+body.dark .skill,
+body.dark input,
+body.dark textarea,
+body.dark button:not(#theme-toggle),
+body.dark .header,
+body.dark footer {
+    background: rgba(20, 20, 40, 0.7) !important;
+    backdrop-filter: blur(10px);
+}
+
+body.dark button:not(#theme-toggle) {
+    background: #ff6b6b !important;
+}
+
+body.dark h1, body.dark h2, body.dark p {
+    color: #ffffff !important;
+}
+body.dark, body.dark *, body.dark .container, body.dark section, body.dark .card, body.dark .skill, body.dark input, body.dark textarea, body.dark button:not(#theme-toggle) {
+    background: rgba(20, 20, 40, 0.8) !important;
+    color: #ffffff !important;
+    border-color: rgba(255,255,255,0.2) !important;
 }
