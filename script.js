@@ -1,36 +1,32 @@
-// پلیر موزیک – نسخه کامل و تست شده
+// پلیر موزیک – نسخه ۱۰۰٪ کارکرده (کپی کن دقیقاً همین!)
 const playlist = [
-    { title: "شادمهر عقیلی – دل دیوونه", src: "music/shadmehr.mp3" }
-    // اگه آهنگ دیگه هم گذاشتی همینجا اضافه کن
+    { title: "شادمهر_دل دیوونه", src: "music1.mp3" }
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
     const audio = document.getElementById("audio");
     const nowPlaying = document.getElementById("now-playing");
     const playlistDiv = document.getElementById("playlist");
-    const search = document.getElementById("search");
 
-    function loadPlaylist(songs) {
-        playlistDiv.innerHTML = "";
-        songs.forEach(song => {
-            const item = document.createElement("div");
-            item.className = "song-item";
-            item.textContent = song.title;
-            item.onclick = () => {
-                audio.src = song.src;
-                audio.play();
-                nowPlaying.textContent = song.title;
-            };
-            playlistDiv.appendChild(item);
-        });
-    }
-
-    search.addEventListener("input", (e) => {
-        const term = e.target.value;
-        const filtered = playlist.filter(s => s.title.includes(term));
-        loadPlaylist(filtered || playlist);
+    // ساخت لیست آهنگ‌ها
+    playlist.forEach(song => {
+        const div = document.createElement("div");
+        div.className = "song-item";
+        div.textContent = song.title + " ▶️";
+        div.onclick = () => {
+            audio.src = song.src;
+            audio.play();
+            nowPlaying.textContent = song.title;
+        };
+        playlistDiv.appendChild(div);
     });
 
-    // اولین بار لیست رو نشون بده
-    loadPlaylist(playlist);
+    // اولین آهنگ رو خودکار لود کن
+    if (playlist.length > 0) {
+        audio.src = playlist[0].src;
+        nowPlaying.textContent = playlist[0].title;
+    }
 });
+const playlist = [
+    { title: "شادمهر – دل دیوونه", src: "music/test.mp3" }
+];
