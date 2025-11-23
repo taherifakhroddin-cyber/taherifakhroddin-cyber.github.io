@@ -88,8 +88,6 @@
 <section class="music-player">
     <h2>پلیر موزیک یزد موزیک 🎵</h2>
     
-    <input type="text" id="search" placeholder="جستجوی آهنگ یا خواننده..." class="search-bar">
-    
     <div class="player">
         <audio id="audio" controls></audio>
         <div class="info">
@@ -99,3 +97,33 @@
 
     <div id="playlist"></div>
 </section>
+
+<script>
+// پلیر ساده با آهنگ مستقیم (بدون پوشه music!)
+const playlist = [
+    { title: "شادمهر عقیلی - دل دیوونه", src: "https://dl.pop-music.ir/1400/09/Shadmehr%20Aqili%20-%20Del%20Divooneh.mp3" },
+    { title: "داریوش - فریاد زیر آب", src: "https://uptv.ir/wp-content/uploads/2022/04/Dariush-Faryad-Zire-Ab.mp3" },
+    { title: "ابی - خسته صدایم", src: "https://dl.pop-music.ir/1400/09/Ebi%20-%20Khaste%20Sedam.mp3" }
+];
+
+const audio = document.getElementById("audio");
+const nowPlaying = document.getElementById("now-playing");
+const playlistDiv = document.getElementById("playlist");
+
+// ساخت لیست
+playlist.forEach((song, index) => {
+    const div = document.createElement("div");
+    div.className = "song-item";
+    div.innerHTML = `<span>${song.title} 🎵</span>`;
+    div.onclick = () => {
+        audio.src = song.src;
+        audio.play();
+        nowPlaying.innerText = song.title;
+    };
+    playlistDiv.appendChild(div);
+});
+
+// اولین آهنگ رو لود کن
+audio.src = playlist[0].src;
+nowPlaying.innerText = playlist[0].title;
+</script>
