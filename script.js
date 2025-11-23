@@ -1,23 +1,36 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("theme-toggle");
-    const status = document.getElementById("theme-status");
+// پلیر موزیک – نسخه کامل و تست شده
+const playlist = [
+    { title: "شادمهر عقیلی – دل دیوونه", src: "music/shadmehr.mp3" }
+    // اگه آهنگ دیگه هم گذاشتی همینجا اضافه کن
+];
 
-    if (localStorage.getItem("theme") === "dark") {
-        document.body.classList.add("dark");
-        toggleBtn.innerText = "☀️ لایت مود";
-        if (status) status.innerText = "حالت تاریک";
+document.addEventListener("DOMContentLoaded", () => {
+    const audio = document.getElementById("audio");
+    const nowPlaying = document.getElementById("now-playing");
+    const playlistDiv = document.getElementById("playlist");
+    const search = document.getElementById("search");
+
+    function loadPlaylist(songs) {
+        playlistDiv.innerHTML = "";
+        songs.forEach(song => {
+            const item = document.createElement("div");
+            item.className = "song-item";
+            item.textContent = song.title;
+            item.onclick = () => {
+                audio.src = song.src;
+                audio.play();
+                nowPlaying.textContent = song.title;
+            };
+            playlistDiv.appendChild(item);
+        });
     }
 
-    toggleBtn.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        if (document.body.classList.contains("dark")) {
-            toggleBtn.innerText = "☀️ لایت مود";
-            if (status) status.innerText = "حالت تاریک";
-            localStorage.setItem("theme", "dark");
-        } else {
-            toggleBtn.innerText = "🌙 دارک مود";
-            if (status) status.innerText = "حالت روشن";
-            localStorage.setItem("theme", "light");
-        }
+    search.addEventListener("input", (e) => {
+        const term = e.target.value;
+        const filtered = playlist.filter(s => s.title.includes(term));
+        loadPlaylist(filtered || playlist);
     });
+
+    // اولین بار لیست رو نشون بده
+    loadPlaylist(playlist);
 });
