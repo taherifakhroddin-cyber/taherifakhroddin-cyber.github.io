@@ -77,7 +77,96 @@
     <p>تعداد بازدید از سایت من تا الان:</p>
     <h3 id="visitor-count">در حال بارگذاری...</h3>
 </section><button id="theme-toggle">لایت مود</button>
-<p id="theme-status">حالت تاریک</p><script src="script.js"></script><body>
+<p id="theme-status">حالت تاریک</p><script src="script.js"></script><!-- پلیر موزیک ساده و کارکرده -->
+<div style="text-align: center; margin: 50px 0;">
+    <h3>پلیر موزیک 🎵</h3>
+    <audio id="player" controls style="width: 80%; margin: 10px 0;"></audio>
+    <p id="current-song">هیچ آهنگی انتخاب نشده</p>
+    <button onclick="playSong('1')">شادمهر - دل دیوونه</button>
+    <button onclick="playSong('2')">داریوش - فریاد زیر آب</button>
+    <button onclick="playSong('3')">ابی - خسته صدایم</button>
+</div>
+
+
+</script><!-- پلیر ساده بدون JS – ۱۰۰٪ کار می‌کنه -->
+<div style="text-align: center; margin: 50px 0; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 20px;">
+    <h3>پلیر موزیک 🎵</h3>
+    <p>روی دکمه‌ها کلیک کن و آهنگ پخش کن!</p>
+    
+    <audio controls style="width: 80%; margin: 10px 0;">
+        <source src="https://dl.pop-music.ir/1400/09/Shadmehr%20Aqili%20-%20Del%20Divooneh.mp3" type="audio/mpeg">
+        مرورگرت از آهنگ پشتیبانی نمی‌کنه.
+    </audio>
+    <p>شادمهر - دل دیوونه (خودکار لود می‌شه)</p>
+    
+    <br>
+    
+    <audio controls style="width: 80%; margin: 10px 0;">
+        <source src="https://uptv.ir/wp-content/uploads/2022/04/Dariush-Faryad-Zire-Ab.mp3" type="audio/mpeg">
+        مرورگرت از آهنگ پشتیبانی نمی‌کنه.
+    </audio>
+    <p>داریوش - فریاد زیر آب</p>
+    
+    <br>
+    
+    <audio controls style="width: 80%; margin: 10px 0;">
+        <source src="https://dl.pop-music.ir/1400/09/Ebi%20-%20Khaste%20Sedam.mp3" type="audio/mpeg">
+        مرورگرت از آهنگ پشتیبانی نمی‌کنه.
+    </audio>
+    <p>ابی - خسته صدایم</p>
+</div><!-- فیچرهای روز هفتم – کپی کن دقیقاً همین -->
+<section style="text-align:center; padding:50px; background:rgba(255,255,255,0.1); margin:50px auto; border-radius:20px; max-width:900px;">
+    <h2>فیچرهای جدید 🔥</h2>
+    
+    <!-- دکمه دانلود -->
+    <div style="margin:30px 0;">
+        <p>دانلود آهنگ شادمهر - دل دیوونه</p>
+        <a href="https://dl.pop-music.ir/1400/09/Shadmehr%20Aqili%20-%20Del%20Divooneh.mp3" download>
+            <button style="padding:15px 30px; font-size:1.2rem; background:#00ff88; border:none; border-radius:50px; cursor:pointer;">دانلود آهنگ 🎵</button>
+        </a>
+    </div>
+
+    <!-- سیستم لایک -->
+    <div style="margin:30px 0;">
+        <p>این سایت چطوره؟ ❤️</p>
+        <button id="like-btn" style="font-size:2rem; background:none; border:none; cursor:pointer;">
+            👍 <span id="like-count">0</span>
+        </button>
+    </div>
+
+    <!-- ویژوالایزر ساده -->
+    <div id="visualizer" style="height:100px; display:flex; justify-content:center; align-items:end; gap:5px; margin:30px 0;">
+        <!-- ستون‌ها با JS ساخته می‌شن -->
+    </div>
+</section>
+
+<script>
+// لایک
+const likeBtn = document.getElementById('like-btn');
+const likeCount = document.getElementById('like-count');
+let likes = localStorage.getItem('likes') || 0;
+likeCount.innerText = likes;
+
+likeBtn.addEventListener('click', () => {
+    likes++;
+    likeCount.innerText = likes;
+    localStorage.setItem('likes', likes);
+});
+
+// ویژوالایزر رندوم (حتی بدون آهنگ قشنگه)
+const visualizer = document.getElementById('visualizer');
+for(let i = 0; i < 20; i++) {
+    const bar = document.createElement('div');
+    bar.style.width = '10px';
+    bar.style.background = '#00ff88';
+    bar.style.borderRadius = '5px';
+    visualizer.appendChild(bar);
+    
+    setInterval(() => {
+        bar.style.height = Math.random() * 80 + 20 + 'px';
+    }, 200);
+}
+</script><body>
     <div class="container">
         <h1 id="title">بروزترین سایت موزیک</h1>
         <img src="https://pinox.ir/wp-content/uploads/2023/08/best-music-websites.jpg" alt="عکس من" id="profile-pic">
